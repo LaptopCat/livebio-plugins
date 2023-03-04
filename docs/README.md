@@ -100,7 +100,7 @@ async def postprocess():
     print("\[awesome_plugin] Data got postprocessed!")
     return "I am really, really awesome!"
 ```
-console is an [rich.console.Console](https://rich.readthedocs.io/en/stable/reference/console.html#rich.console.Console) object.
+console is a [rich.console.Console](https://rich.readthedocs.io/en/stable/reference/console.html#rich.console.Console) object.
 Using it for logging/printing is recommended. It also supports styles and [more](https://rich.readthedocs.io/en/stable/console.html).
 Following this style of logging/printing is also recommended
 ```
