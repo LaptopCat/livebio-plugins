@@ -1,3 +1,7 @@
+# discord.plugin.py
+Adds your discord rich presence.
+## Installing
+### 1. Download the plugin
 
 ### 2.1 Create a Discord bot
 
