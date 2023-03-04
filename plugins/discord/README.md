@@ -3,10 +3,12 @@ Adds your discord rich presence.
 ## Installing
 ### 1. Download the plugin
 You can download the plugin from [here]().
+
 If you are using replit, you should download [this]() version of the plugin and [this]() script.
 
 Place both of them in your plugins folder.
-### 2.1 Create a Discord bot
+### 2. Create a Discord bot
+A Discord bot is needed to receive presence data in a Discord ToS-compliant way.
 
 To create a Discord bot, go to this [page](https://discord.com/developers/applications) (You may need to login with your Discord account)
 
