@@ -37,7 +37,9 @@ Then, open the member sidebar and find yourself. Right click on yourself and cop
 ### 2.3 Add the Bot to your Guild
 Go back to this [page](https://discord.com/developers/applications).
 
-Find your application and click on it
+Find your application and click on it. Then, click on "OAuth" on the left side of the screen and on "URL Generator".
+
+Then, select
 ### 3. Configure the plugin
 First, add a discord field to the plugins field in your existing config:
 ```python
