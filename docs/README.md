@@ -25,6 +25,7 @@ Next, you should define the required things.
 from config import Config
 from helpers import console
 # Both are livebio modules, no need to install them as they are a part of livebio
+print = console.print # Sets print to rich console print which allows you to make the prints beautiful
 __plugin__ = {
               "name": "awesome_plugin", # You should use your plugin's filename without .plugin.py as a name
               "author": "You",
@@ -53,7 +54,7 @@ def setup(event):
   # The code that is here runs in a separate thread when the plugin is added
   # For example: you can run a task here like in the discord plugin or sinoptik plugin
   # It also gets a threading.Event passed to it which gets set when livebio stops
-  console.log("\[awesome-plugin] plugin was added") # this message is unnecessary as livebio prints messages itself when a plugin is loaded
+  print("\[awesome-plugin] plugin was added") # this message is unnecessary as livebio prints messages itself when a plugin is loaded
 ```
 
 You can use the config by importing Config from config.
