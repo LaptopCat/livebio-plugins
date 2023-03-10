@@ -10,7 +10,7 @@ pip install websockets
 ```
 
 ## 1. Download the plugin
-You can download the plugin from [here]().
+You can download the plugin from [here](https://laptopcat.github.io/livebio-plugins/plugins/discord/discord.plugin.py).
 
 After downloading, place it to your plugins folder.
 
