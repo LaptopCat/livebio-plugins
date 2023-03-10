@@ -12,6 +12,8 @@ pip install websockets
 ## 1. Download the plugin
 You can download the plugin from [here]().
 
+After downloading, place it to your plugins folder.
+
 ## 2. Create the necessary Discord stuff
 ## 2.1 Create a Discord bot
 A Discord bot is needed to receive presence data in a Discord ToS-compliant way.
@@ -61,7 +63,7 @@ First, add a discord field to the plugins field in your existing config:
     }
   },
   "script": {
-    "splitter": "|",
+    "splitter": str("|"),
     "template": str("i use livebio btw"),
     "delay": int(20),
     "max_length": int(70)
@@ -75,7 +77,7 @@ First, add a discord field to the plugins field in your existing config:
   }
 }
 ```
-Make it have the token, guild, user and pass_custom fields.
+Make it have the token, guild and pass_custom fields.
 
 Config Reference:
 ```yaml
