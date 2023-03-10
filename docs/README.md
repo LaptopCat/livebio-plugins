@@ -8,7 +8,7 @@ While loading, it checks each file for:
 - postprocess Coroutine
 - setup function
 
-When generating the bio, it uses a regex string (```\{%plugin:(.*?)%\}```) to find all plugins in the template.
+When generating the bio, it uses a regex string {% raw %}(```\{%plugin:(.*?)%\}```){% endraw %} to find all plugins in the template.
 Then, livebio calls gather() of each plugin and adds it all together. It also adds the splitter between each plugin output.
 If the plugin name inside of the template has UNSPLIT at the end, no splitter will be added.
 
