@@ -1,7 +1,7 @@
 # discord.plugin.py
 Adds your discord rich presence.
-## Installing
-### Prerequisites
+# Installing
+## Prerequisites
 You must have livebio installed (obviously)
 
 You must also have the websockets python library installed:
@@ -9,11 +9,11 @@ You must also have the websockets python library installed:
 pip install websockets
 ```
 
-### 1. Download the plugin
+## 1. Download the plugin
 You can download the plugin from [here]().
 
-### 2. Create the necessary Discord stuff
-### 2.1 Create a Discord bot
+## 2. Create the necessary Discord stuff
+## 2.1 Create a Discord bot
 A Discord bot is needed to receive presence data in a Discord ToS-compliant way.
 
 To create a Discord bot, go to this [page](https://discord.com/developers/applications) (You may need to login with your Discord account)
@@ -31,14 +31,14 @@ Now, when the bot is created, copy the token and write it down somewhere (It is 
 After that, scroll down a bit until you find "Privileged Gateway Intents"
 
 In there, enable "Presence Intent" and "Server Members Intent" (You may also want to uncheck the "Public Bot" option)
-### 2.2 Create a Guild
+## 2.2 Create a Guild
 First, open Discord. Then, in the left bar with guilds, find the + and click on it.
 Fill in the stuff with anything you want, doesn't matter.
 Then, go to settings, find Advanced (Behavior), enable Developer Mode.
 
 Open the member sidebar and find yourself. Right click on yourself and copy the ID. Write it down somewhere.
 
-### 2.3 Add the Bot to your Guild
+## 2.3 Add the Bot to your Guild
 Go back to this [page](https://discord.com/developers/applications).
 
 Find your application and click on it. Then, click on "OAuth" on the left side of the screen and on "URL Generator".
@@ -46,7 +46,7 @@ Find your application and click on it. Then, click on "OAuth" on the left side o
 Then, select "Bot" and copy the generated URL.
 
 Next, go to the generated URL and select your guild that you created and add the bot.
-### 3. Configure the plugin
+## 3. Configure the plugin
 First, add a discord field to the plugins field in your existing config:
 ```python
 {
