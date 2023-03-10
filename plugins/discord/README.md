@@ -1,12 +1,16 @@
 # discord.plugin.py
 Adds your discord rich presence.
 ## Installing
+### Prerequisites
+You must have livebio installed (obviously)
+You must also have the websockets python library installed:
+```bash
+pip install websockets
+```
+
 ### 1. Download the plugin
 You can download the plugin from [here]().
 
-If you are using replit, you should download [this]() version of the plugin and [this]() script.
-
-Place both of them in your plugins folder.
 ### 2. Create the necessary Discord stuff
 ### 2.1 Create a Discord bot
 A Discord bot is needed to receive presence data in a Discord ToS-compliant way.
