@@ -30,16 +30,17 @@ In there, enable "Presence Intent" and "Server Members Intent" (You may also wan
 First, open Discord. Then, in the left bar with guilds, find the + and click on it.
 Fill in the stuff with anything you want, doesn't matter.
 Then, go to settings, find Advanced (Behavior), enable Developer Mode.
-Go to your new guild, click on the guild name in the sidebar with channels, scroll down if needed and copy the ID. Write it down somewhere.
 
-Then, open the member sidebar and find yourself. Right click on yourself and copy the ID. Again, write it down somewhere.
+Open the member sidebar and find yourself. Right click on yourself and copy the ID. Write it down somewhere.
 
 ### 2.3 Add the Bot to your Guild
 Go back to this [page](https://discord.com/developers/applications).
 
 Find your application and click on it. Then, click on "OAuth" on the left side of the screen and on "URL Generator".
 
-Then, select
+Then, select "Bot" and copy the generated URL.
+
+Next, go to the generated URL and select your guild that you created and add the bot.
 ### 3. Configure the plugin
 First, add a discord field to the plugins field in your existing config:
 ```python
@@ -63,7 +64,6 @@ First, add a discord field to the plugins field in your existing config:
   "plugins": {
     "discord": {
       "token": str("Your Discord bot token"),
-      "guild": int(Guild ID),
       "user": int(User ID),
       "pass_custom": False # default - False
     }
@@ -75,7 +75,6 @@ Make it have the token, guild, user and pass_custom fields.
 Config Reference:
 ```yaml
 token: Discord bot token
-guild: Guild ID
 user: User ID
 pass_custom: whether the plugin should pass your custom status as an activity.
 ```
