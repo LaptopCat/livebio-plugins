@@ -19,7 +19,7 @@ After generating the bio, it calls postprocess(generated_bio, plugin_generated_s
 
 # Creating Plugins
 
-First, make a (plugin_name).plugin.py file inside of the ./plugins/ directory.
+First, make a ```(plugin_name).plugin.py``` file inside of the ./plugins/ directory.
 
 Next, you should define the required things.
 ```python
