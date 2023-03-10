@@ -77,7 +77,7 @@ Example config for your plugin:
     }
   },
   "script": {
-    "splitter": "|",
+    "splitter": str("|"),
     "template": str("{%plugin:awesome_plugin%}{%plugin:awesome_pluginUNSPLIT%} your text"),
     # Produces "I am really, really awesome! | I am really, really awesome! your text
     "delay": int(20),
@@ -85,7 +85,7 @@ Example config for your plugin:
   },
   "plugins": {
     "awesome_plugin": {
-      "postprocess": boolean(True)
+      "postprocess": True
     }
   }
 }
