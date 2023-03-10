@@ -1,5 +1,5 @@
 # livebio-tg plugin
-__plugin__ = {"name": "discord", "author": "LaptopCat", "version": "1.0", "link": "https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/README.md"} # plugin manifest
+__plugin__ = {"name": "discord", "author": "LaptopCat", "version": "1.1", "link": "https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/README.md"} # plugin manifest
 from config import Config
 from websockets import connect
 from json import loads, dumps
@@ -89,11 +89,10 @@ async def gather(): # This function is called to give back the string that needs
   try:
       actname = activity[1]
       doing = activity[0]
-      doing = doing
-      if doing == "custom":
+      if doing == "":
         action = actname
       else:
-        if doing == "Listening to" and len(activity) == 3:
+        if len(activity) == 3:
           action = f'{doing} {activity[2]} by {activity[1]}'
         else:
           action = f"{doing} {actname}"
@@ -107,7 +106,7 @@ async def postprocess(generated, old):
     action = None
     complete = False
     phase = 0
-    if actname == "Spotify" and doing == "Listening to":
+    if len(activity) == 3:
       while complete is False:
         if len(generated) < Config.script.max_length:
           return action
