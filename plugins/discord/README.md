@@ -3,6 +3,7 @@ Adds your discord rich presence.
 ## Installing
 ### Prerequisites
 You must have livebio installed (obviously)
+
 You must also have the websockets python library installed:
 ```bash
 pip install websockets
