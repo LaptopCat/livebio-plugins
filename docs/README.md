@@ -1,3 +1,4 @@
+some basic python knowledge is recommended
 # How Plugins work?
 
 First, livebio loads all python files with .plugin.py at the end as modules, storing them in a dictionary, so it is easy to find plugins.
