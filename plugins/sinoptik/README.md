@@ -48,7 +48,7 @@ Make it have the path, base_url, postprocess, delay and default fields.
 
 Config Reference:
 ```yaml
-path: The path on sinoptik.ua. For example: /погода-москва
+path: The path of the url to the weather of your city on sinoptik.ua. For example: /погода-москва
 base_url: base url for requests. should always be "https://sinoptik.ua"
 postprocess: whether the plugin should remove the emoji if the generated data is too long
 delay: delay in seconds between each weather request. Default and recommended is 600 (10 minutes) as this data does not change often
