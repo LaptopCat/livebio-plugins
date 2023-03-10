@@ -1,1 +1,3 @@
-theme: midnight
+remote_theme: pages-themes/midnight
+plugins:
+- jekyll-remote-theme
