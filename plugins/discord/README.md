@@ -32,7 +32,7 @@ Now, when the bot is created, copy the token and write it down somewhere (It is 
 
 After that, scroll down a bit until you find "Privileged Gateway Intents"
 
-In there, enable "Presence Intent" and "Server Members Intent" (You may also want to uncheck the "Public Bot" option)
+In there, enable "Presence Intent" (You may also want to uncheck the "Public Bot" option)
 ## 2.2 Create a Guild
 First, open Discord. Then, in the left bar with guilds, find the + and click on it.
 Fill in the stuff with anything you want, doesn't matter.
