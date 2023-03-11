@@ -1,5 +1,4 @@
-# livebio-tg plugin
-__plugin__ = {"name": "discord", "author": "LaptopCat", "version": "1.1", "link": "https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/README.md"} # plugin manifest
+__plugin__ = {"name": "discord", "author": "LaptopCat", "version": "1.2", "link": "https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/README.md"} # plugin manifest
 from config import Config
 from websockets import connect
 from json import loads, dumps
@@ -8,9 +7,6 @@ discord = Config.plugins.discord
 print=console.print
 from asyncio import run, create_task, sleep
 heartbeat = 0
-session = ""
-url = ""
-seq = 0
 Activities = ["Playing", "Streaming", "Listening to", "Watching", "", "Competing in"]
 activity = []
 activities = []
@@ -22,7 +18,7 @@ async def heartbeats(ws, event):
         await send_message(ws, 1)
         await sleep(heartbeat)
 async def handle_message(ws, msg, event):
-    global heartbeat, session, url, seq, activities
+    global heartbeat, activities
     if msg["op"] == 10:
         heartbeat = msg["d"]["heartbeat_interval"]/1000
         create_task(heartbeats(ws, event))
@@ -40,10 +36,7 @@ async def handle_message(ws, msg, event):
     elif msg["op"] == 1:
         await send_message(ws, 11)
     elif msg["op"] == 0:
-        seq = msg["s"]
         if msg["t"] == "READY":
-            session = msg["d"]["session_id"]
-            url = msg["d"]["resume_gateway_url"]
             user = msg["d"]["user"]
             console.log(f"\[discord] Client is up! Running as [bold blue]{user['username']}#{user['discriminator']}[/bold blue]")
         elif msg["t"] == "PRESENCE_UPDATE":
@@ -53,7 +46,7 @@ async def handle_message(ws, msg, event):
               activities = [[Activities[i['type']], i["details"] if i['type']==1 else (i['name'] if i['type']!=4 else i['state'])] if i.get('id')!='spotify:1' else [Activities[i["type"]], i["state"], i["details"]] for i in activities]
     elif msg["op"] == "7" or msg["op"] == 9:
         console.log(f"\[discord] Reconnecting to gateway")
-        await reconnect(event)
+        await main(event)
         return "RECONNECT"
 async def main(event):
       try:
@@ -65,20 +58,8 @@ async def main(event):
             await ws.close()
       except:
         console.log(f"\[discord] Reconnecting to gateway")
-        await reconnect(event)
+        await main(event)
 
-async def reconnect(event):
-    try:
-        async with connect(url) as ws:
-            await send_message(ws, 6, {"token": discord.token, "session_id": session, "seq": seq})
-            while not event.is_set():
-                msg = loads(await ws.recv())
-                if await handle_message(ws, msg, event) == "RECONNECT":
-                    await ws.close()
-            await ws.close()
-    except:
-        console.log(f"\[discord] Reconnecting to gateway")
-        await reconnect(event)
 async def gather(): # This function is called to give back the string that needs to be added
   global actname, doing, activity
   if len(activities)<1:
