@@ -63,16 +63,12 @@ First, add a discord field to the plugins field in your existing config:
     }
   },
   "script": {
-    "splitter": str("|"),
-    "template": str("i use livebio btw"),
-    "delay": int(20),
-    "max_length": int(70)
+    "template": str("i use livebio btw")
   },
   "plugins": {
     "discord": {
       "token": str("Your Discord bot token"),
       "user": int(User ID),
-      "pass_custom": False # default - False
     }
   }
 }
@@ -80,8 +76,12 @@ First, add a discord field to the plugins field in your existing config:
 Make it have the token, guild and pass_custom fields.
 
 Config Reference:
-```yaml
-token: Discord bot token
-user: User ID
-pass_custom: whether the plugin should pass your custom status as an activity.
-```
+<blockquote><details><summary>token</summary>
+Your discord bot token.
+</details>
+</blockquote>
+
+<blockquote><details><summary>user</summary>
+Your discord user id.
+</details>
+</blockquote>
