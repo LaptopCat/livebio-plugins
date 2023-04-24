@@ -101,6 +101,6 @@ lambda activities, config: (activities[1] if len(activities)>1 else activities[0
 
 <blockquote><details><summary>logstrings</summary>
 <i>Optional</i><br>
-Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <a href="https://github.com/LaptopCat/livebio-tg/blob/main/main.py#L26">on line 26 of main.py</a>
+Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <a href="https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/discord.plugin.py#L18">on line 18 of discord.plugin.py</a>
 </details>
 </blockquote>
