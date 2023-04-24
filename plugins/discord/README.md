@@ -6,9 +6,9 @@ You must have livebio installed (obviously)
 
 You must also have the websockets python library installed:
 ```bash
-pip install websockets
+python -m pip install websockets
 ```
-
+(replace python with python3 on linux)
 ## 1. Download the plugin
 You can download the plugin from [here](https://laptopcat.github.io/livebio-plugins/plugins/discord/discord.plugin.py).
 
