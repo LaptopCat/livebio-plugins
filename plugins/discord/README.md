@@ -62,11 +62,16 @@ Make it have the token, guild and pass_custom fields.
 
 Config Reference:
 <blockquote><details><summary>token</summary>
-Your discord bot token.
+Your discord bot token. (String)
 </details>
 </blockquote>
 
 <blockquote><details><summary>user</summary>
-Your discord user id.
+Your discord user id. (Integer)
+</details>
+</blockquote>
+
+<blockquote><details><summary>pass_custom</summary>
+Whether your custom status should be used as an activity. (Boolean)
 </details>
 </blockquote>
