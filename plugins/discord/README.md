@@ -72,13 +72,21 @@ Your discord user id. (Integer)
 </blockquote>
 
 <blockquote><details><summary>pass_custom</summary>
-  <i>Optional</i>
+  <i>Optional</i><br>
 Whether your custom status should be used as an activity. Defaults to False (Boolean)
 </details>
 </blockquote>
 
 <blockquote><details><summary>gateway_url</summary>
- <i>Optional</i>
+ <i>Optional</i><br>
 What URL should the plugin connect to. Defaults to wss://gateway.discord.gg/?v=10&encoding=json (String)
+</details>
+</blockquote>
+
+<blockquote><details><summary>activity_parser</summary>
+ <i>Optional</i><br>
+A function which parses the activity you get from discord's gateway into a list. Defaults to 
+  
+lambda strings,activities: [[strings[i['type']], i["details"] if i['type']==1 else (i['name'] if i['type']!=4 else i['state'])] if i.get('id')!='spotify:1' else [strings[i["type"]], i["state"], i["details"]] for i in activities]
 </details>
 </blockquote>
