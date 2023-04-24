@@ -51,27 +51,12 @@ Next, go to the generated URL and select your guild that you created and add the
 ## 3. Configure the plugin
 First, add a discord field to the plugins field in your existing config:
 ```python
-{
-  "telegram": {
-    "app": {
-      "id": int(4664),
-      "hash": str("Askfdweikltrjhwelkjth")
-    },
-    "auth": {
-      "mode": mode_enum("file"), # "string" or "file"
-      "string": str("isadfiuowehtkwhetkj")
-    }
-  },
-  "script": {
-    "template": str("i use livebio btw")
-  },
   "plugins": {
     "discord": {
       "token": str("Your Discord bot token"),
       "user": int(User ID),
     }
   }
-}
 ```
 Make it have the token, guild and pass_custom fields.
 
