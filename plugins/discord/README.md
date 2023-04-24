@@ -98,3 +98,9 @@ A function which selects an activity to display from activities parsed by activi
 lambda activities, config: (activities[1] if len(activities)>1 else activities[0]) if config.pass_custom is True else (activities[1] if activities[0][0]==config.get_logstring("activities")[4] else activities[0])
 </details>
 </blockquote>
+
+<blockquote><details><summary>logstrings</summary>
+<i>Optional</i><br>
+Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <a href="https://github.com/LaptopCat/livebio-tg/blob/main/main.py#L26">on line 26 of main.py</a>
+</details>
+</blockquote>
