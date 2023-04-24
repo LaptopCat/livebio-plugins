@@ -85,8 +85,16 @@ What URL should the plugin connect to. Defaults to wss://gateway.discord.gg/?v=1
 
 <blockquote><details><summary>activity_parser</summary>
  <i>Optional</i><br>
-A function which parses the activity you get from discord's gateway into a list. Defaults to 
+A function which parses the activities you get from discord's gateway into a list. Defaults to 
   
 lambda strings,activities: [[strings[i['type']], i["details"] if i['type']==1 else (i['name'] if i['type']!=4 else i['state'])] if i.get('id')!='spotify:1' else [strings[i["type"]], i["state"], i["details"]] for i in activities]
+</details>
+</blockquote>
+
+<blockquote><details><summary>activity_selector</summary>
+ <i>Optional</i><br>
+A function which selects an activity to display from activities parsed by activity_parser. Defaults to 
+  
+lambda activities, config: (activities[1] if len(activities)>1 else activities[0]) if config.pass_custom is True else (activities[1] if activities[0][0]==config.get_logstring("activities")[4] else activities[0])
 </details>
 </blockquote>
