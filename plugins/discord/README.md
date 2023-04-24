@@ -72,6 +72,13 @@ Your discord user id. (Integer)
 </blockquote>
 
 <blockquote><details><summary>pass_custom</summary>
-Whether your custom status should be used as an activity. (Boolean)
+  <i>Optional</i>
+Whether your custom status should be used as an activity. Defaults to False (Boolean)
+</details>
+</blockquote>
+
+<blockquote><details><summary>gateway_url</summary>
+ <i>Optional</i>
+What URL should the plugin connect to. Defaults to wss://gateway.discord.gg/?v=10&encoding=json (String)
 </details>
 </blockquote>
