@@ -16,41 +16,54 @@ After downloading, place it to your plugins folder.
 ## 2. Configure the plugin
 First, add a sinoptik field to the plugins field in your existing config:
 ```python
-{
-  "telegram": {
-    "app": {
-      "id": int(4664),
-      "hash": str("Askfdweikltrjhwelkjth")
-    },
-    "auth": {
-      "mode": mode_enum("file"), # "string" or "file"
-      "string": str("isadfiuowehtkwhetkj")
-    }
-  },
-  "script": {
-    "splitter": str("|"),
-    "template": str("i use livebio btw"),
-    "delay": int(20),
-    "max_length": int(70)
-  },
+
   "plugins": {
     "sinoptik": {
-      "path": str("/погода-москва"),
-      "base_url": str("https://sinoptik.ua"), # default is "https://sinoptik.ua" 
-      "postprocess": False, # default is False
-      "delay": int(600), # default is 600
-      "default": "⛅" # default is ⛅
+      "path": str("/погода-москва")
     }
   }
-}
 ```
-Make it have the path, base_url, postprocess, delay and default fields.
 
 Config Reference:
-```yaml
-path: The path of the url to the weather of your city on sinoptik.ua. For example: /погода-москва
-base_url: base url for requests. should always be "https://sinoptik.ua"
-postprocess: whether the plugin should remove the emoji if the generated data is too long
-delay: delay in seconds between each weather request. Default and recommended is 600 (10 minutes) as this data does not change often
-default: the default emoji/text to use if weather is not cached (usually on first bio change)
-```
+<blockquote><details><summary>path</summary>
+Which path on the website should be used to get weather info. (String)
+</details>
+</blockquote>
+
+<blockquote><details><summary>base_url</summary>
+<i>Optional</i><br>
+Base URL for requests (String). Defaults to https://sinoptik.ua
+</details>
+</blockquote>
+
+<blockquote><details><summary>delay</summary>
+  <i>Optional</i><br>
+How much time should pass between each weather cache in seconds (Integer). Defaults to 600.
+</details>
+</blockquote>
+
+<blockquote><details><summary>default</summary>
+ <i>Optional</i><br>
+Default string to use as weather if weather not cached yet/caching failed (String). Defaults to ⛅ 
+</details>
+</blockquote>
+
+<blockquote><details><summary>parser</summary>
+ <i>Optional</i><br>
+A function which parses the page data you get into a string. Defaults to 
+  
+lambda text: text.split('bd1c')[1].split("weatherIcoS")[1].split("cur")[1].split("/s/")[1].split(".gif")[0]
+</details>
+</blockquote>
+
+<blockquote><details><summary>postprocess</summary>
+ <i>Optional</i><br>
+Whether the plugin should remove weather output if generated bio is bigger than Config.script.max_length. Defaults to False
+</details>
+</blockquote>
+
+<blockquote><details><summary>logstrings</summary>
+<i>Optional</i><br>
+Dictionary of strings that are logged to the console or used somewhere to generate the bio. Default logstrings are <a href="https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/sinoptik/sinoptik.plugin.py#L17">on line 17 of sinoptik.plugin.py</a>
+</details>
+</blockquote>
