@@ -58,7 +58,7 @@ First, add a discord field to the plugins field in your existing config:
     }
   }
 ```
-Make it have the token, guild and pass_custom fields.
+Make it have the token and user fields.
 
 Config Reference:
 <blockquote><details><summary>token</summary>
