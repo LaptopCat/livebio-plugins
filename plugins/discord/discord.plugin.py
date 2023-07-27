@@ -27,6 +27,7 @@ def activity_parser(strings, activities):
       result.append(result2)
   return result
 def activity_selector(activities, config):
+    print(activities)
     if len(activities) != 0:
         if config.pass_custom:
             if len(activities) > 1:
@@ -87,8 +88,7 @@ async def handle_message(ws, msg, event):
         elif msg["t"] == "PRESENCE_UPDATE":
             data = msg["d"]
             if data["user"]["id"] == str(discord.user):
-              activities = data["activities"]
-              activities = discord.activity_parser(discord.logstrings.activities, activities)
+              activities = discord.activity_parser(discord.logstrings.activities, data["activities"])
     elif msg["op"] == "7" or msg["op"] == 9:
         console.log(logstring("reconnecting") + " (Opcode {})".format(msg["op"]))
         return "RECONNECT"
@@ -123,7 +123,7 @@ async def gather(): # This function is called to give back the string that needs
         else:
           action = f"{doing} {actname}"
   except:
-      action = ""
+    action = ""
   return action
 
 
