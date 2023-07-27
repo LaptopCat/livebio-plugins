@@ -1,5 +1,5 @@
 # livebio-tg plugin
-__plugin__ = {"name": "discord", "author": "LaptopCat", "version": "1.3", "link": "https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/README.md"} # plugin manifest
+__plugin__ = {"name": "discord", "author": "LaptopCat", "version": "1.4", "link": "https://github.com/LaptopCat/livebio-plugins/blob/main/plugins/discord/README.md"} # plugin manifest
 from config import Config
 from websockets import connect
 from json import loads, dumps
@@ -10,8 +10,36 @@ from asyncio import run, create_task, sleep
 heartbeat = 0
 activity = []
 activities = []
-discord.activity_selector = getattr(discord, "activity_selector", lambda activities, config: (activities[1] if len(activities)>1 else activities[0]) if config.pass_custom is True else (activities[1] if activities[0][0]==config.get_logstring("activities")[4] else activities[0]))
-discord.activity_parser = getattr(discord, "activity_parser", lambda strings,activities:[[strings[i['type']], i["details"] if i['type']==1 else (i['name'] if i['type']!=4 else i['state'])] if i.get('id')!='spotify:1' else [strings[i["type"]], i["state"], i["details"]] for i in activities])
+def activity_parser(strings, activities):
+  result = []
+  for i in activities:
+      result2 = [strings[i["type"]], i["name"]]
+      if i.get('id') == "spotify:1":
+        result2.append(i["state"])
+        result2.append(i["details"])
+      else:
+        if i['type'] == 1:
+          result2.append(i["details"])
+        elif i["type"] == 4:
+          result2.append(i["state"])
+        else:
+          result2.append(i["name"])
+      result.append(result2)
+  return result
+def activity_selector(activities, config):
+    if len(activities) != 0:
+        if config.pass_custom:
+            if len(activities) > 1:
+                return activities[1]
+            else:
+                return activities[0]
+        else:
+            if activities[0][0] == config.get_logstring("activities")[4]:
+                return activities[1]
+            else:
+                return activities[0]
+discord.activity_selector = getattr(discord, "activity_selector", activity_selector)
+discord.activity_parser = getattr(discord, "activity_parser", activity_parser)
 discord.logstrings = getattr(discord, "logstrings", None)
 discord.gateway_url = getattr(discord, "gateway", "wss://gateway.discord.gg/?v=10&encoding=json")
 discord.pass_custom = getattr(discord, "pass_custom", False)
