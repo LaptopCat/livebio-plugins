@@ -88,7 +88,7 @@ async def handle_message(ws, msg, event):
         elif msg["t"] == "PRESENCE_UPDATE":
             data = msg["d"]
             if data["user"]["id"] == str(discord.user):
-              activities = discord.activity_parser(discord.logstrings.activities, data["activities"])
+              activities = discord.activity_parser(logstring("activities"), data["activities"])
     elif msg["op"] == "7" or msg["op"] == 9:
         console.log(logstring("reconnecting") + " (Opcode {})".format(msg["op"]))
         return "RECONNECT"
